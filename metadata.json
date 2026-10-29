@@ -1,0 +1,6 @@
+{
+  "name": "Clinical Telemetry Interface",
+  "description": "Life-critical physiological patient telemetry interface with real-time multi-channel oscilloscope sweeps, diagnostic 12-lead ECG, central ward monitoring, and precision alarm boundaries.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

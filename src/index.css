@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+}
+
+/* Medical Oscilloscope Background Grid: 1mm & 5mm equivalent clinical grid */
+.medical-grid {
+  background-color: #181b22;
+  background-image: 
+    linear-gradient(to right, #1a222d 1px, transparent 1px),
+    linear-gradient(to bottom, #1a222d 1px, transparent 1px),
+    linear-gradient(to right, #151b24 1px, transparent 1px),
+    linear-gradient(to bottom, #151b24 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px, 6px 6px, 6px 6px;
+}
+
+.medical-grid-fine {
+  background-color: #121212;
+  background-image: 
+    linear-gradient(to right, rgba(26, 34, 45, 0.9) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 34, 45, 0.9) 1px, transparent 1px),
+    linear-gradient(to right, rgba(21, 27, 36, 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(21, 27, 36, 0.5) 1px, transparent 1px);
+  background-size: 20px 20px, 20px 20px, 4px 4px, 4px 4px;
+}
+
+/* Micro-pulsing beacons per specification */
+@keyframes micro-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(2.0);
+    opacity: 0;
+  }
+}
+
+.animate-micro-pulse {
+  animation: micro-pulse 1.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes critical-hard-flash {
+  0%, 100% {
+    opacity: 1;
+    background-color: rgba(239, 68, 68, 0.25);
+    border-color: #ef4444;
+  }
+  50% {
+    opacity: 0.85;
+    background-color: rgba(239, 68, 68, 0.05);
+    border-color: rgba(239, 68, 68, 0.4);
+  }
+}
+
+.animate-critical-flash {
+  animation: critical-hard-flash 0.4s ease-in-out infinite;
+}
+
+/* Custom scrollbar for high-density clinical panels */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2d3748;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4edea3;
+}
